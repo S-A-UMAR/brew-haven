@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Brew Haven Coffee Shop</title>
+  <meta name="description" content="Discover the story behind Brew Haven. From our humble 2015 beginnings to serving 100,000+ happy customers, meet the passionate team behind every cup." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    .about-hero {
+      background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-primary) 100%);
+      padding: 140px 8% 80px;
+      text-align: center;
+    }
+    .about-hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--color-cream);
+      margin-bottom: 16px;
+    }
+    .about-hero-subtitle {
+      color: rgba(247,243,239,0.75);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 576px) {
+      .counters-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-preview { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media screen and (max-width: 768px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-circle" aria-hidden="true"></div>
+
+  <div class="preloader" aria-hidden="true">
+    <div class="coffee-loader">
+      <svg class="preloader-cup" viewBox="0 0 100 100">
+        <path d="M15 35 L20 85 Q20 90 50 90 Q80 90 80 85 L85 35 Z" stroke="none" fill="rgba(212,163,115,0.15)"/>
+        <path class="cup-liquid" d="M22 65 L78 65 L76 84 Q75 88 50 88 Q25 88 24 84 Z" stroke="none"/>
+        <path d="M15 35 L20 85 Q20 90 50 90 Q80 90 80 85 L85 35 Z"/>
+        <path d="M15 35 L85 35"/>
+        <path d="M80 50 Q95 50 95 65 Q95 80 80 80" fill="none" stroke-width="4"/>
+      </svg>
+    </div>
+    <p class="preloader-text">Brew Haven</p>
+    <p class="preloader-subtitle">Our Story</p>
+  </div>
+
+  <div class="scroll-progress-container" aria-hidden="true">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <header class="header" role="banner">
+    <a href="index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M4 10h24l-2 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L4 10zM4 10a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2M22 8c0-3-2-5-6-5s-6 2-6 5M19 4s1 2 0 4M13 4s-1 2 0 4"/>
+      </svg>
+      Brew Haven
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-list" id="navList">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="menu.html" class="nav-link">Menu</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="theme-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- About Hero -->
+  <div class="about-hero">
+    <span class="section-badge">Who We Are</span>
+    <h1 class="about-hero-title">Our Story</h1>
+    <p class="about-hero-subtitle">From a small corner shop to a beloved local institution — eleven years of passion in every cup.</p>
+  </div>
+
+  <!-- Story Section -->
+  <section class="section" id="story" aria-label="Our story">
+    <div class="about-preview">
+      <div class="about-img-wrapper reveal from-left">
+        <img
+          src="https://images.unsplash.com/photo-1459755486867-b55449bb39ff?w=700&q=80"
+          alt="The founders of Brew Haven in their original coffee shop"
+          width="700"
+          height="500"
+          loading="lazy"
+        />
+        <div class="about-img-badge">
+          <div class="about-img-badge-number">2015</div>
+          <div class="about-img-badge-text">Est. London</div>
+        </div>
+      </div>
+      <div class="about-content reveal from-right">
+        <span class="section-badge">Our Beginning</span>
+        <h2 class="section-title">Born from a Love of Coffee</h2>
+        <blockquote>"We didn't open a coffee shop. We opened a community."</blockquote>
+        <p style="color:var(--text-muted); margin-bottom:18px;">
+          Brew Haven was born in 2015 when founder Amara Chen returned from a year of travelling through Ethiopia and Colombia, inspired by the incredible coffee cultures she experienced. Armed with a vision and a vintage La Marzocco espresso machine, she opened our first location in London's Brew District.
+        </p>
+        <p style="color:var(--text-muted); margin-bottom:18px;">
+          What started as a 12-seat shop has grown into a destination for coffee lovers, remote workers, and friends seeking a warm, welcoming space. Our beans are still ethically sourced directly from partner farms and roasted on-site every single day.
+        </p>
+        <p style="color:var(--text-muted);">
+          Every choice we make — from the cups we use to the music we play — is designed to create moments of joy and connection.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Animated Counters -->
+  <section class="section" style="background-color: var(--bg-secondary);" id="stats" aria-label="Our achievements">
+    <div class="section-header reveal">
+      <span class="section-badge">By the Numbers</span>
+      <h2 class="section-title">Brew Haven in Numbers</h2>
+    </div>
+    <div class="counters-grid reveal">
+      <div class="counter-card">
+        <div class="counter-number" data-target="100000" data-suffix="+" aria-label="Over 100,000 happy customers">0+</div>
+        <div class="counter-label">Happy Customers</div>
+      </div>
+      <div class="counter-card">
+        <div class="counter-number" data-target="11" data-suffix="">0</div>
+        <div class="counter-label">Years of Excellence</div>
+      </div>
+      <div class="counter-card">
+        <div class="counter-number" data-target="42" data-suffix="">0</div>
+        <div class="counter-label">Menu Items</div>
+      </div>
+      <div class="counter-card">
+        <div class="counter-number" data-target="8" data-suffix="">0</div>
+        <div class="counter-label">Awards Won</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section" id="timeline" aria-label="Our journey timeline">
+    <div class="section-header reveal">
+      <span class="section-badge">Our Journey</span>
+      <h2 class="section-title">Milestones That Shaped Us</h2>
+    </div>
+    <div class="timeline" role="list">
+      <div class="timeline-item reveal" role="listitem">
+        <div class="timeline-year">2015</div>
+        <h3 class="timeline-title">Opened First Shop</h3>
+        <p class="timeline-text">Amara opens our 12-seat original location on Coffee Lane, Brew District. A small dream, a big vision.</p>
+      </div>
+      <div class="timeline-item reveal" role="listitem">
+        <div class="timeline-year">2017</div>
+        <h3 class="timeline-title">On-site Roastery</h3>
+        <p class="timeline-text">We installed a professional roasting setup to roast our beans daily on-site — the freshest coffee in London.</p>
+      </div>
+      <div class="timeline-item reveal" role="listitem">
+        <div class="timeline-year">2018</div>
+        <h3 class="timeline-title">Won Best Local Café</h3>
+        <p class="timeline-text">Awarded 'Best Independent Café in London' by the Coffee Association of Great Britain. A milestone we cherish.</p>
+      </div>
+      <div class="timeline-item reveal" role="listitem">
+        <div class="timeline-year">2022</div>
+        <h3 class="timeline-title">Expanded Premises</h3>
+        <p class="timeline-text">We expanded to a 60-seat space with our beautiful new interior design, an outdoor terrace, and private events room.</p>
+      </div>
+      <div class="timeline-item reveal" role="listitem">
+        <div class="timeline-year">2026</div>
+        <h3 class="timeline-title">100,000 Customers Served</h3>
+        <p class="timeline-text">A landmark we celebrate with our community. Over 100,000 cups served to incredible people from all over the world.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet the Team -->
+  <section class="section" style="background-color: var(--bg-secondary);" id="team" aria-label="Our team">
+    <div class="section-header reveal">
+      <span class="section-badge">The People Behind the Cup</span>
+      <h2 class="section-title">Meet Our Team</h2>
+      <p class="section-subtitle">Each member of our team is passionate, trained, and dedicated to your perfect experience.</p>
+    </div>
+    <div class="team-grid reveal">
+      <article class="team-card" id="teamOwner">
+        <img class="team-img" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&q=80&fit=crop&crop=face" alt="Amara Chen, Founder & Owner of Brew Haven" loading="lazy" width="400" height="260" />
+        <div class="team-body">
+          <h3 class="team-name">Amara Chen</h3>
+          <p class="team-role">Founder & Owner</p>
+        </div>
+      </article>
+      <article class="team-card" id="teamBarista">
+        <img class="team-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&q=80&fit=crop&crop=face" alt="Marcus Reid, Head Barista at Brew Haven" loading="lazy" width="400" height="260" />
+        <div class="team-body">
+          <h3 class="team-name">Marcus Reid</h3>
+          <p class="team-role">Head Barista</p>
+        </div>
+      </article>
+      <article class="team-card" id="teamChef">
+        <img class="team-img" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&q=80&fit=crop&crop=face" alt="Sofia Martínez, Head Chef at Brew Haven" loading="lazy" width="400" height="260" />
+        <div class="team-body">
+          <h3 class="team-name">Sofia Martínez</h3>
+          <p class="team-role">Head Chef</p>
+        </div>
+      </article>
+      <article class="team-card" id="teamManager">
+        <img class="team-img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&q=80&fit=crop&crop=face" alt="Daniel Osei, Café Manager at Brew Haven" loading="lazy" width="400" height="260" />
+        <div class="team-body">
+          <h3 class="team-name">Daniel Osei</h3>
+          <p class="team-role">Café Manager</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-col-about">
+        <div class="footer-logo">
+          <svg class="footer-logo-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 10h24l-2 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L4 10zM4 10a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2M22 8c0-3-2-5-6-5s-6 2-6 5"/></svg>
+          Brew Haven
+        </div>
+        <p>A premium coffee experience since 2015.</p>
+      </div>
+      <div class="footer-col-links">
+        <h3 class="footer-col-title">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="menu.html" class="footer-link">Our Menu</a></li>
+          <li><a href="gallery.html" class="footer-link">Gallery</a></li>
+          <li><a href="about.html" class="footer-link">About Us</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col-hours">
+        <h3 class="footer-col-title">Opening Hours</h3>
+        <ul class="footer-links">
+          <li style="color: var(--text-muted); font-size:0.9rem;">Mon – Fri: <strong style="color: var(--color-accent);">7AM – 8PM</strong></li>
+          <li style="color: var(--text-muted); font-size:0.9rem;">Saturday: <strong style="color: var(--color-accent);">8AM – 10PM</strong></li>
+          <li style="color: var(--text-muted); font-size:0.9rem;">Sunday: <strong style="color: var(--color-accent);">9AM – 6PM</strong></li>
+        </ul>
+      </div>
+      <div class="footer-col-contact">
+        <h3 class="footer-col-title">Contact</h3>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>hello@brewhaven.co</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Brew Haven. All rights reserved. Crafted with ☕</p>
+    </div>
+  </footer>
+
+  <button class="floating-order-btn" id="floatingOrderBtn" aria-label="Make a reservation">
+    <svg viewBox="0 0 24 24"><path d="M4 10h16l-2 8a2 2 0 01-2 2H8a2 2 0 01-2-2l-2-8zm16 0V8a2 2 0 00-2-2H6a2 2 0 00-2 2v2m6-6s1-1 2-1 2 1 2 1M9 4s-1 1-1 2m6-2s1 1 1 2"/></svg>
+  </button>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><path d="M12 4l8 8h-6v8h-4v-8H4l8-8z"/></svg>
+  </button>
+
+  <dialog id="orderDialog" closedby="any" aria-labelledby="orderDialogTitle">
+    <div class="dialog-header">
+      <h2 class="dialog-title" id="orderDialogTitle">Reserve a Table ☕</h2>
+      <button class="dialog-close-btn" aria-label="Close dialog">✕</button>
+    </div>
+    <form id="orderForm" novalidate>
+      <div class="form-group">
+        <label for="orderName" class="form-label">Your Name</label>
+        <input type="text" id="orderName" class="form-control" placeholder="Jane Smith" required autocomplete="name"/>
+      </div>
+      <div class="form-group">
+        <label for="orderEmail" class="form-label">Email Address</label>
+        <input type="email" id="orderEmail" class="form-control" placeholder="jane@example.com" required autocomplete="email"/>
+      </div>
+      <div class="form-group">
+        <label for="orderDate" class="form-label">Preferred Date & Time</label>
+        <input type="datetime-local" id="orderDate" class="form-control" required/>
+      </div>
+      <div class="form-group">
+        <label for="orderGuests" class="form-label">Number of Guests</label>
+        <input type="number" id="orderGuests" class="form-control" placeholder="2" min="1" max="20" required/>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; margin-top:8px;" id="reserveBtn">Confirm Reservation</button>
+    </form>
+  </dialog>
+
+
+  <!-- Bottom Floating Navigation (Mobile only) -->
+  <nav class="bottom-nav" aria-label="Mobile bottom navigation">
+    <a href="index.html" class="bottom-nav-item" id="bnHome" aria-label="Home">
+      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      <span class="bottom-nav-label">Home</span>
+    </a>
+    <a href="menu.html" class="bottom-nav-item" id="bnMenu" aria-label="Menu">
+      <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      <span class="bottom-nav-label">Menu</span>
+    </a>
+    <a href="gallery.html" class="bottom-nav-item" id="bnGallery" aria-label="Gallery">
+      <svg viewBox="0 0 24 24"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/></svg>
+      <span class="bottom-nav-label">Gallery</span>
+    </a>
+    <a href="about.html" class="bottom-nav-item active" id="bnAbout"  aria-label="About">
+      <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4-1.3 4-4s-1.3-4-4-4-4 1.3-4 4 1.3 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z"/></svg>
+      <span class="bottom-nav-label">About</span>
+    </a>
+    <a href="contact.html" class="bottom-nav-item" id="bnContact" aria-label="Contact">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      <span class="bottom-nav-label">Contact</span>
+    </a>
+  </nav>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

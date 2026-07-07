@@ -1,0 +1,211 @@
+/* ==========================================
+   RESPONSIVE DESIGN & MOBILE OVERRIDES
+   ========================================== */
+
+/* Large screens and Desktops (default is 1200px+) */
+
+/* Tablets and iPads (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+  
+  .header {
+    padding: 0 5%;
+  }
+  
+  .section {
+    padding: 80px 5% 60px;
+  }
+  
+  /* Footer Grid Adjustments */
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 30px;
+  }
+  
+  .footer-col-about {
+    grid-column: span 3;
+    margin-bottom: 20px;
+  }
+  
+  /* About Timeline Adjustments */
+  .timeline::before {
+    left: 20px;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 0;
+    text-align: left !important;
+  }
+  
+  .timeline-item::after {
+    left: 20px;
+    transform: translate(-50%, -50%);
+  }
+  
+  .timeline-item:nth-child(even) {
+    left: 0;
+  }
+}
+
+/* Small Tablets & Large Phones (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  /* Header & Navigation */
+  .header {
+    height: 70px;
+  }
+
+  /* Hide hamburger — bottom nav replaces it */
+  .menu-toggle {
+    display: none;
+  }
+
+  /* Hide the top nav list on mobile */
+  .nav-list {
+    display: none;
+  }
+  
+  /* Bottom floating nav — visible on mobile only */
+  .bottom-nav {
+    display: flex;
+  }
+
+  /* Push page content up so bottom nav doesn't cover it */
+  body {
+    padding-bottom: 90px;
+  }
+
+  /* Reposition floating buttons above the bottom nav */
+  .floating-order-btn {
+    bottom: 90px;
+    right: 16px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .back-to-top {
+    bottom: 150px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Section Layouts */
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  /* Grid conversions to stack */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .footer-col-about {
+    grid-column: span 2;
+  }
+  
+  /* Contact Layout conversion */
+  .contact-container {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+  
+  /* Popups and floating buttons responsive placement */
+  .floating-order-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .back-to-top {
+    bottom: 85px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+  
+  /* Custom Cursor disable for mobile */
+  .cursor-dot, .cursor-circle {
+    display: none !important;
+  }
+}
+
+/* Extra Small Phones (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .footer-col-about {
+    grid-column: span 1;
+  }
+  
+  /* Buttons padding reduction */
+  .btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+  
+  /* Form components spacing */
+  dialog {
+    padding: 25px;
+  }
+}
+
+/* Utility Display/Flex helpers */
+.grid-cols-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.grid-cols-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.grid-cols-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* Grid layout Responsive Wrappers */
+@media screen and (max-width: 1024px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+}

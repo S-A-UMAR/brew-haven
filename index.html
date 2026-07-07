@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brew Haven — Fresh Coffee, Made Every Morning</title>
+  <meta name="description" content="Brew Haven is a premium coffee shop serving ethically sourced, freshly roasted coffee. Visit us for espresso, cappuccino, latte, mocha, and more." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-circle" aria-hidden="true"></div>
+
+  <!-- Preloader -->
+  <div class="preloader" aria-hidden="true">
+    <div class="coffee-loader">
+      <svg class="preloader-cup" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 35 L20 85 Q20 90 50 90 Q80 90 80 85 L85 35 Z" stroke="none" fill="rgba(212,163,115,0.15)" />
+        <path class="cup-liquid" d="M22 65 L78 65 L76 84 Q75 88 50 88 Q25 88 24 84 Z" stroke="none" />
+        <path d="M15 35 L20 85 Q20 90 50 90 Q80 90 80 85 L85 35 Z" />
+        <path d="M15 35 L85 35" />
+        <path d="M80 50 Q95 50 95 65 Q95 80 80 80" stroke-width="4" fill="none" />
+        <!-- Steam lines -->
+        <path d="M35 25 Q38 18 35 10" stroke="rgba(212,163,115,0.7)" fill="none" stroke-width="2.5" stroke-linecap="round" class="steam-path"/>
+        <path d="M50 22 Q53 15 50 7" stroke="rgba(212,163,115,0.7)" fill="none" stroke-width="2.5" stroke-linecap="round" class="steam-path"/>
+        <path d="M65 25 Q68 18 65 10" stroke="rgba(212,163,115,0.7)" fill="none" stroke-width="2.5" stroke-linecap="round" class="steam-path"/>
+      </svg>
+    </div>
+    <p class="preloader-text">Brew Haven</p>
+    <p class="preloader-subtitle">Crafting Perfection</p>
+  </div>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-container" aria-hidden="true">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header" role="banner">
+    <a href="index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M4 10h24l-2 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L4 10zM4 10a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2M22 8c0-3-2-5-6-5s-6 2-6 5M19 4s1 2 0 4M13 4s-1 2 0 4"/>
+      </svg>
+      Brew Haven
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul class="nav-list" id="navList">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="menu.html" class="nav-link">Menu</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+        <svg class="theme-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section class="hero" id="hero" aria-label="Hero section">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <!-- Decorative steam SVG -->
+    <svg class="steam-container" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path class="steam-path" d="M50 280 Q60 230 40 180 Q20 130 50 80 Q70 40 60 10" stroke="#D4A373" fill="none" stroke-width="3" stroke-linecap="round"/>
+      <path class="steam-path" d="M100 290 Q110 240 90 190 Q70 140 100 90 Q120 50 110 10" stroke="#D4A373" fill="none" stroke-width="3" stroke-linecap="round"/>
+      <path class="steam-path" d="M150 285 Q160 235 140 185 Q120 135 150 85 Q170 45 160 10" stroke="#D4A373" fill="none" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+
+    <div class="hero-content">
+      <span class="hero-badge">☕ Premium Coffee Experience</span>
+      <h1 class="hero-title">
+        Fresh Coffee,<br />
+        Made Every <span>Morning.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Ethically sourced beans roasted daily. Every cup crafted with love and precision by our expert baristas.
+      </p>
+      <div class="hero-actions">
+        <a href="menu.html" class="btn btn-accent" id="heroExploreBtn">Explore Menu</a>
+        <a href="contact.html" class="btn btn-outline" style="color: var(--color-cream); border-color: var(--color-cream);" id="heroVisitBtn">Visit Us</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <div class="scroll-mouse"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT PREVIEW ===================== -->
+  <section class="section" id="about-preview" aria-label="About Brew Haven">
+    <div class="about-preview">
+      <div class="about-img-wrapper reveal from-left">
+        <img
+          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80"
+          alt="Barista carefully pouring coffee in our cozy Brew Haven cafe"
+          width="700"
+          height="500"
+          loading="lazy"
+        />
+        <div class="about-img-badge">
+          <div class="about-img-badge-number">11</div>
+          <div class="about-img-badge-text">Years of Excellence</div>
+        </div>
+      </div>
+      <div class="about-content reveal from-right">
+        <span class="section-badge">Our Story</span>
+        <h2 class="section-title">Crafted with Passion, Served with Love</h2>
+        <blockquote>
+          "Our beans are ethically sourced from around the world and roasted daily for the perfect cup."
+        </blockquote>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">
+          Since 2015, Brew Haven has been a sanctuary for coffee lovers — a place where the aroma of freshly ground beans mingles with the warmth of community. We believe every cup has a story.
+        </p>
+        <p style="color: var(--text-muted); margin-bottom: 36px;">
+          Our expert baristas undergo rigorous training to ensure that every espresso, latte, and pour-over meets our exacting standards. From farm to cup, we trace every single bean.
+        </p>
+        <a href="about.html" class="btn btn-primary" id="learnMoreBtn">Learn Our Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== POPULAR DRINKS ===================== -->
+  <section class="section" style="background-color: var(--bg-secondary);" id="popular-drinks" aria-label="Popular drinks">
+    <div class="section-header">
+      <span class="section-badge">Fan Favourites</span>
+      <h2 class="section-title">Our Most Popular Drinks</h2>
+      <p class="section-subtitle">Expertly crafted beverages that keep our regulars coming back every morning.</p>
+    </div>
+    <div class="grid-cols-4 reveal">
+      <!-- Espresso -->
+      <article class="drink-card" id="drinkEspresso">
+        <div style="overflow:hidden;">
+          <img class="drink-card-img" src="images/menu/espresso.jpg" alt="Rich espresso shot with golden crema" loading="lazy" width="400" height="220" />
+        </div>
+        <div class="drink-card-body">
+          <h3 class="drink-card-title">Espresso</h3>
+          <p class="drink-card-desc">Bold, intense shot of pure coffee magic.</p>
+          <div class="drink-card-meta">
+            <span class="drink-price">$3.50</span>
+            <span class="stars" aria-label="5 stars">★★★★★</span>
+          </div>
+        </div>
+      </article>
+      <!-- Cappuccino -->
+      <article class="drink-card" id="drinkCappuccino">
+        <div style="overflow:hidden;">
+          <img class="drink-card-img" src="images/menu/cappuccino.jpg" alt="Creamy cappuccino with latte art" loading="lazy" width="400" height="220" />
+        </div>
+        <div class="drink-card-body">
+          <h3 class="drink-card-title">Cappuccino</h3>
+          <p class="drink-card-desc">Silky steamed milk with a velvety espresso base.</p>
+          <div class="drink-card-meta">
+            <span class="drink-price">$4.50</span>
+            <span class="stars" aria-label="5 stars">★★★★★</span>
+          </div>
+        </div>
+      </article>
+      <!-- Latte -->
+      <article class="drink-card" id="drinkLatte">
+        <div style="overflow:hidden;">
+          <img class="drink-card-img" src="images/menu/latte.jpg" alt="Layered latte macchiato in a glass" loading="lazy" width="400" height="220" />
+        </div>
+        <div class="drink-card-body">
+          <h3 class="drink-card-title">Latte</h3>
+          <p class="drink-card-desc">Creamy steamed milk with a smooth espresso shot.</p>
+          <div class="drink-card-meta">
+            <span class="drink-price">$5.00</span>
+            <span class="stars" aria-label="5 stars">★★★★★</span>
+          </div>
+        </div>
+      </article>
+      <!-- Mocha -->
+      <article class="drink-card" id="drinkMocha">
+        <div style="overflow:hidden;">
+          <img class="drink-card-img" src="images/menu/mocha.jpg" alt="Indulgent mocha with whipped cream" loading="lazy" width="400" height="220" />
+        </div>
+        <div class="drink-card-body">
+          <h3 class="drink-card-title">Mocha</h3>
+          <p class="drink-card-desc">Rich chocolate-espresso blend, cloud of cream.</p>
+          <div class="drink-card-meta">
+            <span class="drink-price">$5.99</span>
+            <span class="stars" aria-label="4 stars">★★★★☆</span>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div style="text-align:center; margin-top: 48px;">
+      <a href="menu.html" class="btn btn-primary" id="viewFullMenuBtn">View Full Menu</a>
+    </div>
+  </section>
+
+  <!-- ===================== WHY CHOOSE US ===================== -->
+  <section class="section" id="why-us" aria-label="Why choose Brew Haven">
+    <div class="section-header reveal">
+      <span class="section-badge">The Brew Haven Difference</span>
+      <h2 class="section-title">Why Coffee Lovers Choose Us</h2>
+    </div>
+    <div class="features-grid reveal">
+      <div class="feature-card">
+        <span class="feature-icon">☕</span>
+        <h3 class="feature-card-title">Premium Beans</h3>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🌱</span>
+        <h3 class="feature-card-title">Organic Ingredients</h3>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🚀</span>
+        <h3 class="feature-card-title">Fast Service</h3>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📶</span>
+        <h3 class="feature-card-title">Free High-Speed WiFi</h3>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🐶</span>
+        <h3 class="feature-card-title">Pet Friendly</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section class="section testimonials-section" id="testimonials" aria-label="Customer testimonials">
+    <div class="section-header reveal">
+      <span class="section-badge" style="color: var(--color-accent);">Happy Customers</span>
+      <h2 class="section-title" style="color: var(--color-cream);">What Our Guests Say</h2>
+    </div>
+    <div class="testimonials-slider" role="region" aria-label="Testimonials carousel">
+      <div class="testimonial-slide active" id="slide1">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="testimonial-text">"The best coffee I've ever had. The atmosphere is absolutely magical and the baristas know exactly how I like my order."</p>
+        <div class="testimonial-author">
+          <img class="testimonial-author-img" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&q=80&fit=crop" alt="Sarah Mitchell" loading="lazy" width="60" height="60" />
+          <span class="testimonial-author-name">Sarah Mitchell</span>
+          <span class="testimonial-author-role">Regular Customer</span>
+        </div>
+      </div>
+      <div class="testimonial-slide" id="slide2">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="testimonial-text">"I come here every single morning. The cappuccino is consistently perfect and the staff are incredibly welcoming."</p>
+        <div class="testimonial-author">
+          <img class="testimonial-author-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&q=80&fit=crop" alt="James Okafor" loading="lazy" width="60" height="60" />
+          <span class="testimonial-author-name">James Okafor</span>
+          <span class="testimonial-author-role">Coffee Enthusiast</span>
+        </div>
+      </div>
+      <div class="testimonial-slide" id="slide3">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="testimonial-text">"The cozy atmosphere and exceptional quality of every drink makes this my favourite place to work from on weekends."</p>
+        <div class="testimonial-author">
+          <img class="testimonial-author-img" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&q=80&fit=crop" alt="Priya Sharma" loading="lazy" width="60" height="60" />
+          <span class="testimonial-author-name">Priya Sharma</span>
+          <span class="testimonial-author-role">Freelance Designer</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-controls">
+      <button class="testimonial-btn prev" aria-label="Previous testimonial">‹</button>
+      <div class="testimonial-dots" role="tablist" aria-label="Testimonial indicators">
+        <button class="testimonial-dot active" aria-label="Testimonial 1" role="tab"></button>
+        <button class="testimonial-dot" aria-label="Testimonial 2" role="tab"></button>
+        <button class="testimonial-dot" aria-label="Testimonial 3" role="tab"></button>
+      </div>
+      <button class="testimonial-btn next" aria-label="Next testimonial">›</button>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY PREVIEW ===================== -->
+  <section class="section" style="background-color: var(--bg-secondary);" id="gallery-preview" aria-label="Photo gallery preview">
+    <div class="section-header reveal">
+      <span class="section-badge">Visual Journey</span>
+      <h2 class="section-title">A Glimpse Into Our World</h2>
+    </div>
+    <div class="gallery-preview-grid reveal">
+      <div class="gallery-preview-item">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500&q=80" alt="Barista pouring a perfect latte art" loading="lazy" width="500" height="500" />
+        <div class="gallery-preview-overlay">
+          <div class="gallery-preview-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-preview-item">
+        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=500&q=80" alt="Interior of Brew Haven with warm lighting" loading="lazy" width="500" height="500" />
+        <div class="gallery-preview-overlay">
+          <div class="gallery-preview-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-preview-item">
+        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=500&q=80" alt="Close-up of freshly roasted coffee beans" loading="lazy" width="500" height="500" />
+        <div class="gallery-preview-overlay">
+          <div class="gallery-preview-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-preview-item">
+        <img src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?w=500&q=80" alt="Cozy seating area with warm atmosphere" loading="lazy" width="500" height="500" />
+        <div class="gallery-preview-overlay">
+          <div class="gallery-preview-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top: 40px;">
+      <a href="gallery.html" class="btn btn-primary" id="viewGalleryBtn">View Full Gallery</a>
+    </div>
+  </section>
+
+  <!-- ===================== OPENING HOURS ===================== -->
+  <section class="section" id="hours" aria-label="Opening hours">
+    <div class="section-header reveal">
+      <span class="section-badge">Visit Us</span>
+      <h2 class="section-title">Opening Hours</h2>
+    </div>
+    <div style="max-width: 600px; margin: 0 auto;" class="reveal">
+      <div class="hours-table-card">
+        <div class="hours-table-header">☕ When We're Brewing</div>
+        <table class="hours-table" aria-label="Opening hours">
+          <tbody>
+            <tr>
+              <td>Monday – Friday</td>
+              <td>7:00 AM – 8:00 PM</td>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td>8:00 AM – 10:00 PM</td>
+            </tr>
+            <tr>
+              <td>Sunday</td>
+              <td>9:00 AM – 6:00 PM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="section" style="background-color: var(--bg-secondary);" id="faq" aria-label="Frequently asked questions">
+    <div class="section-header reveal">
+      <span class="section-badge">Got Questions?</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list reveal" role="list">
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">Where are your beans sourced from? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Our beans are ethically sourced from farms in Ethiopia, Colombia, and Guatemala. We work directly with growers to ensure fair trade practices and exceptional quality in every batch we roast.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">Do you offer dairy-free options? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Absolutely! We offer oat milk, almond milk, coconut milk, and soy milk as alternatives for all our espresso-based drinks at no extra charge. Just let your barista know your preference.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">Can I make a reservation? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes! While walk-ins are always welcome, we recommend making a reservation for groups of 6 or more. Use our Contact page or click the floating coffee cup button to book a table.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">Is Brew Haven pet friendly? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes! We love four-legged visitors. Our outdoor seating area is fully pet-friendly and we even keep a bowl of fresh water ready. Well-behaved pets on leashes are welcome.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">Do you offer takeaway and delivery? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes, we offer takeaway on all menu items. We also partner with local delivery services. Check our contact page for delivery zone information and minimum order details.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NEWSLETTER ===================== -->
+  <section class="newsletter-section" id="newsletter" aria-label="Newsletter subscription">
+    <div class="reveal">
+      <h2 class="newsletter-title">Stay in the Loop ☕</h2>
+      <p class="newsletter-subtitle">Subscribe for seasonal specials, new menu items, and exclusive member discounts.</p>
+      <form class="newsletter-form" id="newsletterForm" novalidate>
+        <label for="newsletterEmail" class="visually-hidden">Your email address</label>
+        <input
+          type="email"
+          id="newsletterEmail"
+          class="newsletter-input"
+          placeholder="Enter your email address..."
+          required
+          aria-label="Email address for newsletter"
+        />
+        <button type="submit" class="newsletter-btn" id="subscribeBtn">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-col-about">
+        <div class="footer-logo">
+          <svg class="footer-logo-icon" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M4 10h24l-2 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L4 10zM4 10a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2M22 8c0-3-2-5-6-5s-6 2-6 5M19 4s1 2 0 4M13 4s-1 2 0 4"/>
+          </svg>
+          Brew Haven
+        </div>
+        <p>A premium coffee experience since 2015. Where every cup tells a story and every visit feels like home.</p>
+        <div class="social-links" aria-label="Social media links">
+          <a href="#" class="social-btn" aria-label="Follow us on Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="Follow us on Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="Follow us on Twitter / X">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="Follow us on TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col-links">
+        <h3 class="footer-col-title">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="menu.html" class="footer-link">Our Menu</a></li>
+          <li><a href="gallery.html" class="footer-link">Gallery</a></li>
+          <li><a href="about.html" class="footer-link">About Us</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col-hours">
+        <h3 class="footer-col-title">Opening Hours</h3>
+        <ul class="footer-links">
+          <li style="color: var(--text-muted); font-size:0.9rem;">Mon – Fri: <strong style="color: var(--color-accent);">7AM – 8PM</strong></li>
+          <li style="color: var(--text-muted); font-size:0.9rem;">Saturday: <strong style="color: var(--color-accent);">8AM – 10PM</strong></li>
+          <li style="color: var(--text-muted); font-size:0.9rem;">Sunday: <strong style="color: var(--color-accent);">9AM – 6PM</strong></li>
+        </ul>
+      </div>
+
+      <div class="footer-col-contact">
+        <h3 class="footer-col-title">Get in Touch</h3>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span>42 Coffee Lane, Brew District, London EC1A 1BB</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02L6.62 10.79z"/></svg>
+          <span>+44 20 7123 4567</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>hello@brewhaven.co</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Brew Haven. All rights reserved. Crafted with ☕</p>
+      <p><a href="#" class="footer-link">Privacy Policy</a> · <a href="#" class="footer-link">Terms of Service</a></p>
+    </div>
+  </footer>
+
+  <!-- Floating Order Now Button -->
+  <button class="floating-order-btn" id="floatingOrderBtn" aria-label="Make a reservation" title="Book a table or order now">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 10h16l-2 8a2 2 0 01-2 2H8a2 2 0 01-2-2l-2-8zm16 0V8a2 2 0 00-2-2H6a2 2 0 00-2 2v2m6-6s1-1 2-1 2 1 2 1M9 4s-1 1-1 2m6-2s1 1 1 2"/>
+    </svg>
+  </button>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><path d="M12 4l8 8h-6v8h-4v-8H4l8-8z"/></svg>
+  </button>
+
+  <!-- Order Dialog -->
+  <dialog id="orderDialog" closedby="any" aria-labelledby="orderDialogTitle">
+    <div class="dialog-header">
+      <h2 class="dialog-title" id="orderDialogTitle">Reserve a Table ☕</h2>
+      <button class="dialog-close-btn" aria-label="Close dialog">✕</button>
+    </div>
+    <form id="orderForm" novalidate>
+      <div class="form-group">
+        <label for="orderName" class="form-label">Your Name</label>
+        <input type="text" id="orderName" class="form-control" placeholder="Jane Smith" required autocomplete="name" />
+      </div>
+      <div class="form-group">
+        <label for="orderEmail" class="form-label">Email Address</label>
+        <input type="email" id="orderEmail" class="form-control" placeholder="jane@example.com" required autocomplete="email" />
+      </div>
+      <div class="form-group">
+        <label for="orderDate" class="form-label">Preferred Date & Time</label>
+        <input type="datetime-local" id="orderDate" class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label for="orderGuests" class="form-label">Number of Guests</label>
+        <input type="number" id="orderGuests" class="form-control" placeholder="2" min="1" max="20" required />
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; margin-top:8px;" id="reserveBtn">Confirm Reservation</button>
+    </form>
+  </dialog>
+
+
+  <!-- Bottom Floating Navigation (Mobile only) -->
+  <nav class="bottom-nav" aria-label="Mobile bottom navigation">
+    <a href="index.html" class="bottom-nav-item active" id="bnHome"  aria-label="Home">
+      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      <span class="bottom-nav-label">Home</span>
+    </a>
+    <a href="menu.html" class="bottom-nav-item" id="bnMenu" aria-label="Menu">
+      <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      <span class="bottom-nav-label">Menu</span>
+    </a>
+    <a href="gallery.html" class="bottom-nav-item" id="bnGallery" aria-label="Gallery">
+      <svg viewBox="0 0 24 24"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/></svg>
+      <span class="bottom-nav-label">Gallery</span>
+    </a>
+    <a href="about.html" class="bottom-nav-item" id="bnAbout" aria-label="About">
+      <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4-1.3 4-4s-1.3-4-4-4-4 1.3-4 4 1.3 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z"/></svg>
+      <span class="bottom-nav-label">About</span>
+    </a>
+    <a href="contact.html" class="bottom-nav-item" id="bnContact" aria-label="Contact">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      <span class="bottom-nav-label">Contact</span>
+    </a>
+  </nav>
+
+  <script src="js/main.js"></script>
+  <script src="js/slider.js"></script>
+</body>
+</html>
