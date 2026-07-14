@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're Offline — Brew Haven</title>
+  <meta name="description" content="It looks like you're offline. Reconnect to enjoy the full Brew Haven experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      background: var(--bg-primary);
+    }
+
+    .offline-icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 32px;
+      opacity: 0.85;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .offline-badge {
+      display: inline-block;
+      background: rgba(212, 163, 115, 0.15);
+      color: var(--color-accent);
+      border: 1px solid rgba(212, 163, 115, 0.3);
+      border-radius: var(--radius-full);
+      padding: 6px 18px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .offline-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .offline-subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 400px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .offline-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .offline-tips {
+      margin-top: 56px;
+      padding: 28px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .offline-tips-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .offline-tip-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      text-align: left;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .offline-tip-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .tip-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+  </style>
+</head>
+<body>
+
+  <svg class="offline-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <!-- Coffee cup -->
+    <rect x="28" y="55" width="64" height="44" rx="8" fill="#6F4E37" opacity="0.2"/>
+    <path d="M30 55 L35 95 Q36 99 60 99 Q84 99 85 95 L90 55 Z" fill="#6F4E37" opacity="0.6"/>
+    <path d="M28 55 L92 55" stroke="#D4A373" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M88 65 Q100 65 100 77 Q100 89 88 89" stroke="#D4A373" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <!-- Steam wisps (muted) -->
+    <path d="M44 44 Q48 36 44 28" stroke="#D4A373" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.4"/>
+    <path d="M60 40 Q64 32 60 24" stroke="#D4A373" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.4"/>
+    <path d="M76 44 Q80 36 76 28" stroke="#D4A373" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.4"/>
+    <!-- No WiFi symbol -->
+    <line x1="8" y1="8" x2="28" y2="28" stroke="#D4A373" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    <path d="M20 16 Q24 12 30 10" stroke="#D4A373" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
+    <path d="M16 20 Q18 14 26 8" stroke="#D4A373" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.4"/>
+  </svg>
+
+  <span class="offline-badge">📶 No Connection</span>
+  <h1 class="offline-title">You're Offline</h1>
+  <p class="offline-subtitle">
+    It looks like you've lost your connection. But don't worry — your cached Brew Haven pages are still available!
+  </p>
+
+  <div class="offline-actions">
+    <button onclick="window.location.reload()" class="btn btn-accent" id="retryBtn">
+      ↺ Try Again
+    </button>
+    <a href="/index.html" class="btn btn-outline" id="homeBtn">
+      ☕ Go to Home
+    </a>
+  </div>
+
+  <div class="offline-tips">
+    <p class="offline-tips-title">While you wait, here's what's cached ☕</p>
+    <div class="offline-tip-item">
+      <span class="tip-icon">📋</span>
+      <span>Your full menu — explore our coffees, teas, and food even offline.</span>
+    </div>
+    <div class="offline-tip-item">
+      <span class="tip-icon">🖼️</span>
+      <span>Gallery photos you've already visited are stored for offline viewing.</span>
+    </div>
+    <div class="offline-tip-item">
+      <span class="tip-icon">📍</span>
+      <span>Our address and opening hours — so you can still find us.</span>
+    </div>
+  </div>
+
+  <script>
+    // Auto-retry when connection returns
+    window.addEventListener('online', () => {
+      window.location.reload();
+    });
+  </script>
+
+</body>
+</html>

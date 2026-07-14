@@ -2,6 +2,132 @@
    MAIN.JS — Core site-wide interactions
    ============================================= */
 
+/* =============================================
+   PWA — Service Worker Registration
+   ============================================= */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/sw.js', { scope: '/' })
+      .then((reg) => {
+        console.log('[PWA] Service Worker registered:', reg.scope);
+
+        // Check for updates every 60 seconds while tab is open
+        setInterval(() => reg.update(), 60_000);
+
+        // Notify user when a new version is waiting
+        reg.addEventListener('updatefound', () => {
+          const newWorker = reg.installing;
+          newWorker?.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              showUpdateToast();
+            }
+          });
+        });
+      })
+      .catch((err) => console.warn('[PWA] Service Worker registration failed:', err));
+  });
+}
+
+/* ── Update available toast ── */
+function showUpdateToast() {
+  const toast = document.createElement('div');
+  toast.id = 'pwa-update-toast';
+  toast.setAttribute('role', 'status');
+  toast.setAttribute('aria-live', 'polite');
+  toast.innerHTML = `
+    <span>✨ New version of Brew Haven is ready!</span>
+    <button id="pwaUpdateBtn" aria-label="Reload to update">Reload</button>
+    <button id="pwaToastDismiss" aria-label="Dismiss">✕</button>
+  `;
+  document.body.appendChild(toast);
+
+  // Animate in
+  requestAnimationFrame(() => toast.classList.add('visible'));
+
+  document.getElementById('pwaUpdateBtn')?.addEventListener('click', () => {
+    window.location.reload();
+  });
+  document.getElementById('pwaToastDismiss')?.addEventListener('click', () => {
+    toast.classList.remove('visible');
+    setTimeout(() => toast.remove(), 400);
+  });
+}
+
+/* =============================================
+   PWA — Install Prompt (Add to Home Screen)
+   ============================================= */
+let deferredInstallPrompt = null;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent the mini-infobar from appearing on mobile
+  e.preventDefault();
+  deferredInstallPrompt = e;
+
+  // Show our custom install banner after a short delay
+  // (give the user time to engage with the site first)
+  setTimeout(showInstallBanner, 4000);
+});
+
+function showInstallBanner() {
+  // Don't show if already installed
+  if (window.matchMedia('(display-mode: standalone)').matches) return;
+  // Don't show if already dismissed this session
+  if (sessionStorage.getItem('pwa-install-dismissed')) return;
+  // Don't show if no prompt is stored
+  if (!deferredInstallPrompt) return;
+
+  const banner = document.createElement('div');
+  banner.id = 'pwa-install-banner';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-label', 'Install Brew Haven app');
+  banner.innerHTML = `
+    <div class="pwa-banner-icon">
+      <img src="/images/icons/icon-192.jpg" alt="Brew Haven app icon" width="48" height="48" />
+    </div>
+    <div class="pwa-banner-text">
+      <strong>Add Brew Haven to your home screen</strong>
+      <span>Get the app experience — works offline too!</span>
+    </div>
+    <div class="pwa-banner-actions">
+      <button id="pwaInstallBtn" class="pwa-install-btn" aria-label="Install app">Install</button>
+      <button id="pwaInstallDismiss" class="pwa-dismiss-btn" aria-label="Dismiss install banner">Not now</button>
+    </div>
+  `;
+  document.body.appendChild(banner);
+  requestAnimationFrame(() => banner.classList.add('visible'));
+
+  document.getElementById('pwaInstallBtn')?.addEventListener('click', async () => {
+    if (!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    const { outcome } = await deferredInstallPrompt.userChoice;
+    console.log('[PWA] Install outcome:', outcome);
+    deferredInstallPrompt = null;
+    banner.classList.remove('visible');
+    setTimeout(() => banner.remove(), 400);
+  });
+
+  document.getElementById('pwaInstallDismiss')?.addEventListener('click', () => {
+    sessionStorage.setItem('pwa-install-dismissed', '1');
+    banner.classList.remove('visible');
+    setTimeout(() => banner.remove(), 400);
+  });
+}
+
+/* Track successful install */
+window.addEventListener('appinstalled', () => {
+  console.log('[PWA] App installed successfully');
+  deferredInstallPrompt = null;
+  // Optional: show a thank-you toast
+  const toast = document.createElement('div');
+  toast.id = 'pwa-installed-toast';
+  toast.setAttribute('role', 'status');
+  toast.innerHTML = `<span>☕ Brew Haven installed! Find it on your home screen.</span>`;
+  document.body.appendChild(toast);
+  requestAnimationFrame(() => toast.classList.add('visible'));
+  setTimeout(() => { toast.classList.remove('visible'); setTimeout(() => toast.remove(), 400); }, 4000);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ---- Preloader ---- */
